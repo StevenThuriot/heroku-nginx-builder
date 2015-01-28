@@ -1,0 +1,4 @@
+{
+    "name"        : "heroku-nginx-builder",
+    "version"     : "1.0.0"
+}
