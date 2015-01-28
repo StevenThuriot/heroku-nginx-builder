@@ -44,6 +44,11 @@ echo "Downloading $headers_more_nginx_module_url"
 	make install
 )
 
+cd /tmp/nginx/sbin/
+chmod 755 nginx
+tar -cvzf nginx.tar.gz nginx
+
+
 while true
 do
 	sleep 1
