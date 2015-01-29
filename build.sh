@@ -45,11 +45,9 @@ echo "Downloading $headers_more_nginx_module_url"
 )
 
 echo "Creating Tarball in root"
-cd /tmp
-nginxbin=/tmp/nginx/sbin/nginx
-
-chmod 755 $nginxbin
-tar -cvzf nginx.tar.gz $nginxbin
+cd /tmp/nginx/sbin
+chmod 755 nginx
+tar -cvzf /tmp/nginx.tar.gz nginx
 
 
 while true
