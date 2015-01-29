@@ -17,7 +17,7 @@ nginx_tarball_url=http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
 pcre_tarball_url=http://garr.dl.sourceforge.net/project/pcre/pcre/${PCRE_VERSION}/pcre-${PCRE_VERSION}.tar.bz2
 headers_more_nginx_module_url=https://github.com/agentzh/headers-more-nginx-module/archive/v${HEADERS_MORE_VERSION}.tar.gz
 
-temp_dir=$(mktemp -d /tmp/nginx.XXXXXXXXXX)
+temp_dir=$(mktemp -d /tmp/nginx-src.XXXXXXXXXX)
 
 echo "Serving files from /tmp on $PORT"
 cd /tmp
@@ -44,13 +44,16 @@ echo "Downloading $headers_more_nginx_module_url"
 	make install
 )
 
-cd /tmp/nginx/sbin/
-chmod 755 nginx
-tar -cvzf nginx.tar.gz nginx
+echo "Creating Tarball in root"
+cd /tmp
+nginxbin=/tmp/nginx/sbin/nginx
+
+chmod 755 $nginxbin
+tar -cvzf nginx.tar.gz $nginxbin
 
 
 while true
 do
 	sleep 1
-	echo "."
+	echo "Waiting.."
 done
